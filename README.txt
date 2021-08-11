@@ -1,38 +1,16 @@
-################################################################################
-# README.txt
-#
-# Used to describe how to run the Signed Graph Convolutional Networks code.
-#
-# Author: Tyler Derr (derrtyle@msu.edu)
-# Note: Some code extended from the Reference PyTorch GraphSAGE Implementation.
-#       https://github.com/williamleif/graphsage-simple
-#
-# Version information:
-#  $ python
-#  Python 2.7.12 (default, Dec  4 2017, 14:50:18)
-#  [GCC 5.4.0 20160609] on linux2
-#  Type "help", "copyright", "credits" or "license" for more information.
-#  >>> import torch
-#  >>> import sklearn
-#  >>> import scipy
-#  >>> import numpy
-#  >>> torch.__version__
-#  '0.4.0'
-#  >>> sklearn.__version__
-#  '0.19.1'
-#  >>> scipy.__version__
-#  '1.0.0'
-#  >>> numpy.__version__
-#  '1.14.2'
-#
-################################################################################
+most code extended from the sample implementation by Tyler Derr.
 
+################################################################################
+Step 0) Split into train, val, and test datasets.
+################################################################################
+	Run this to split into train val and test datasets.
+	$ python -m train_val_test_split.py {csv file name} {out file prefix} {number of nodes}
 ################################################################################
 Step 1) Ensure appropriate undirected signed network dataset format
 ################################################################################
 
 	The format of the file first line should be of the following form:
-	num_nodes num_edges
+	num_nodes num_edges, these values will be used for the adjacency matrix, so be sure they are correct.
 
 	The format of the remaining lines should be as follows:
 	node_i node_j sign
@@ -47,10 +25,7 @@ Step 1) Ensure appropriate undirected signed network dataset format
 Step 2) Obtain the spectral embedding by running generate_spectral_features.py
 ################################################################################
 
-	Note: We recommend obtaining 128, since we can later just limit to the
-	first 64 (which we used in our experiments). This will output a .pkl file
-	containing the embedding/features.
-
+	Use 64 for dim_size, make sure you run this on a bash shell, not the default windows one.
 	How to run this file:
 	$ python generate_spectral_features.py training_data_file_name dim_size
 	
