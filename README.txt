@@ -1,6 +1,10 @@
 most code extended from the sample implementation by Tyler Derr.
 
-
+################################################################################
+Step 0) Split into train, val, and test datasets.
+################################################################################
+	Run this to split into train val and test datasets.
+	$ python -m train_val_test_split.py {csv file name} {out file prefix} {number of nodes}
 ################################################################################
 Step 1) Ensure appropriate undirected signed network dataset format
 ################################################################################
