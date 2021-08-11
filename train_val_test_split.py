@@ -3,6 +3,7 @@ import sys
 import os
 dataset_csv_file = sys.argv[1]
 out_file_name = sys.argv[2]
+number_of_nodes = sys.argv[3]
 split = [0.9, 0.05, 0.05]
 
 #A = numpy.zeros((n,n), dtype=int)
@@ -14,7 +15,6 @@ test_file = open(f'{out_file_name}_test.txt', 'w')
 train_data = []
 val_data = []
 test_data = []
-number_of_nodes = 6005
 for l in fp:
     R = random.random()
     l = l.split()
